@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartEdge Solutions</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    .heading-font { font-family: 'Playfair Display', serif; }
+    html { scroll-behavior: smooth; }
+  </style>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen w-full" style="background: rgb(255, 255, 255);">
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a data-template-id="nav-name" class="canva-text text-lg font-bold" style="color: rgb(5, 150, 105); font-weight: 700; font-style: normal; font-size: 16px;">SmartEdge Solutions</a>
+    <div class="flex gap-6">
+     <a href="#home" data-template-id="nav-home" class="canva-link hover:text-emerald-600 transition" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Home</a> <a href="#services" data-template-id="nav-services" class="canva-link hover:text-emerald-600 transition" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Services</a> <a href="#contact" data-template-id="nav-contact" class="canva-link hover:text-emerald-600 transition" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Contact</a>
+    </div>
+   </div>
+  </nav>
+  <main>
+   <section id="home" data-template-id="hero-section" class="canva-section flex items-center justify-center px-6 pt-24 pb-16" style="min-height: calc(90 * min(var(--vh, 1vh), 1vh)); background: linear-gradient(135deg, rgb(236, 253, 245), rgb(240, 253, 244), rgb(255, 255, 255));">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+     <div class="text-center md:text-left flex-1">
+      <h1 data-template-id="hero-name" class="canva-text heading-font" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 32px;">SmartEdge Solutions</h1>
+      <p data-template-id="hero-subtitle" class="canva-text text-xl mt-3" style="color: rgb(5, 150, 105); font-weight: 500; font-style: normal; font-size: 16px;">Professional Resume Writing Services</p>
+      <p data-template-id="hero-tagline" class="canva-text mt-4 max-w-lg" style="color: rgb(75, 85, 99); font-weight: 400; font-style: normal; font-size: 16px;">We craft ATS-friendly and creative resumes for working professionals, fresh graduates, and interns. Land your dream job with a resume that stands out.</p><a href="#contact" data-template-id="hero-cta" class="canva-button inline-block mt-6 px-8 py-3 rounded-lg font-semibold transition hover:opacity-90" style="background: rgb(5, 150, 105); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Get Your Resume Now</a>
+     </div>
+     <div class="flex-1">
+      <img data-template-id="hero-image" class="canva-image w-full max-w-md mx-auto rounded-2xl shadow-lg object-cover" loading="lazy" src="https://images.pexels.com/photos/20955052/pexels-photo-20955052.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A woman uses a laptop at a stylish desk in a bright, modern office setting.">
+     </div>
+    </div>
+   </section>
+   <section id="services" class="px-6 py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+     <h2 data-template-id="services-heading" class="canva-text heading-font text-center mb-12" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Our Services</h2>
+     <div class="grid md:grid-cols-3 gap-8 items-center">
+      <div data-template-id="service-1-card" class="canva-card p-8 rounded-2xl shadow-md" style="background: rgb(255, 255, 255);">
+       <div class="text-4xl mb-4">
+        📄
+       </div>
+       <h3 data-template-id="service-1-title" class="canva-text font-bold text-xl mb-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 19px;">ATS-Friendly Resume</h3>
+       <p data-template-id="service-1-desc" class="canva-text" style="color: rgb(75, 85, 99); font-weight: 400; font-style: normal; font-size: 16px;">Optimised for Applicant Tracking Systems. Your resume passes automated screenings and reaches hiring managers with the right keywords and formatting.</p>
+      </div>
+      <div class="flex justify-center">
+       <div class="w-48 h-64 relative bg-white rounded-xl shadow-lg p-4 border-2 border-emerald-200 overflow-hidden">
+        <svg viewBox="0 0 200 280" class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
+          <style>
+            @keyframes scanline {
+              0% { transform: translateY(-100%); }
+              100% { transform: translateY(300px); }
+            }
+            @keyframes pulse-check {
+              0%, 60% { opacity: 0; }
+              70%, 100% { opacity: 1; }
+            }
+            .scan-line { animation: scanline 2s ease-in-out infinite; }
+            .check-1 { animation: pulse-check 2s ease-in-out infinite; animation-delay: 0.3s; }
+            .check-2 { animation: pulse-check 2s ease-in-out infinite; animation-delay: 0.8s; }
+            .check-3 { animation: pulse-check 2s ease-in-out infinite; animation-delay: 1.3s; }
+          </style>
+         </defs> <rect x="10" y="10" width="180" height="260" fill="#f8f9fa" stroke="#d1d5db" stroke-width="2" rx="4"></rect> <text x="100" y="35" text-anchor="middle" font-size="16" font-weight="bold" fill="#111827">
+          RESUME
+         </text> <line x1="20" y1="50" x2="180" y2="50" stroke="#e5e7eb" stroke-width="1"></line> <text x="20" y="70" font-size="11" fill="#374151">
+          John Doe
+         </text> <text x="20" y="85" font-size="9" fill="#6b7280">
+          john@email.com | (555) 123-4567
+         </text> <line x1="20" y1="95" x2="180" y2="95" stroke="#e5e7eb" stroke-width="1"></line> <text x="20" y="110" font-size="10" font-weight="bold" fill="#111827">
+          EXPERIENCE
+         </text> <rect x="20" y="118" width="160" height="3" fill="#e5e7eb" rx="1.5"></rect> <rect x="20" y="128" width="160" height="3" fill="#e5e7eb" rx="1.5"></rect> <rect x="20" y="138" width="140" height="3" fill="#e5e7eb" rx="1.5"></rect> <line x1="20" y1="150" x2="180" y2="150" stroke="#e5e7eb" stroke-width="1"></line> <text x="20" y="165" font-size="10" font-weight="bold" fill="#111827">
+          SKILLS
+         </text> <rect x="20" y="173" width="160" height="3" fill="#e5e7eb" rx="1.5"></rect> <rect x="20" y="183" width="160" height="3" fill="#e5e7eb" rx="1.5"></rect> <rect x="20" y="193" width="140" height="3" fill="#e5e7eb" rx="1.5"></rect> <line x1="20" y1="205" x2="180" y2="205" stroke="#e5e7eb" stroke-width="1"></line> <text x="20" y="220" font-size="10" font-weight="bold" fill="#111827">
+          EDUCATION
+         </text> <rect x="20" y="228" width="160" height="3" fill="#e5e7eb" rx="1.5"></rect> <rect x="20" y="238" width="160" height="3" fill="#e5e7eb" rx="1.5"></rect> <g class="check-1">
+          <circle cx="175" cy="115" r="6" fill="#10b981" opacity="0.9"></circle>
+          <path d="M 172 115 L 174 117 L 177 113" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+         </g> <g class="check-2">
+          <circle cx="175" cy="155" r="6" fill="#10b981" opacity="0.9"></circle>
+          <path d="M 172 155 L 174 157 L 177 153" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+         </g> <g class="check-3">
+          <circle cx="175" cy="210" r="6" fill="#10b981" opacity="0.9"></circle>
+          <path d="M 172 210 L 174 212 L 177 208" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+         </g> <rect x="10" y="10" width="180" height="5" fill="#10b981" opacity="0.6" class="scan-line"></rect>
+        </svg>
+       </div>
+      </div>
+      <div data-template-id="service-2-card" class="canva-card p-8 rounded-2xl shadow-md" style="background: rgb(255, 255, 255);">
+       <div class="text-4xl mb-4">
+        🎨
+       </div>
+       <h3 data-template-id="service-2-title" class="canva-text font-bold text-xl mb-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 19px;">Creative Resume</h3>
+       <p data-template-id="service-2-desc" class="canva-text" style="color: rgb(75, 85, 99); font-weight: 400; font-style: normal; font-size: 16px;">Stand out with a visually stunning design. Perfect for roles in creative industries where presentation and personality matter as much as experience.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="px-6 py-20">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+     <img data-template-id="about-image" class="canva-image w-full md:w-1/2 rounded-2xl shadow-lg object-cover h-72" loading="lazy" src="https://images.pexels.com/photos/8117466/pexels-photo-8117466.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Diverse team of young professionals brainstorming together in a contemporary office setting.">
+     <div class="flex-1">
+      <h2 data-template-id="about-heading" class="canva-text heading-font mb-4" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Why Choose Us?</h2>
+      <p data-template-id="about-text" class="canva-text leading-relaxed" style="color: rgb(75, 85, 99); font-weight: 400; font-style: normal; font-size: 16px;">At SmartEdge Solutions, we understand what recruiters look for. Whether you're a seasoned professional switching careers or an intern seeking your first opportunity, our expert writers tailor every resume to highlight your strengths and match industry standards.</p>
+     </div>
+    </div>
+   </section>
+   <section id="contact" class="px-6 py-20 bg-gray-50">
+    <div class="max-w-xl mx-auto">
+     <h2 data-template-id="contact-heading" class="canva-text heading-font text-center mb-10" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Get In Touch</h2>
+     <form id="contact-form" class="space-y-5">
+      <div>
+       <label data-template-id="label-name" class="canva-text block mb-1" for="c-name" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Name</label> <input id="c-name" type="text" data-template-id="input-name" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required="" maxlength="100" autocomplete="name" placeholder="Your name" style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">
+      </div>
+      <div>
+       <label data-template-id="label-email" class="canva-text block mb-1" for="c-email" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Email</label> <input id="c-email" type="email" data-template-id="input-email" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required="" maxlength="120" autocomplete="email" placeholder="your@email.com" style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">
+      </div>
+      <div>
+       <label data-template-id="label-message" class="canva-text block mb-1" for="c-msg" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Message</label> <textarea id="c-msg" rows="4" data-template-id="input-message" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required="" maxlength="1000" placeholder="Tell us about your resume needs..." style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;"></textarea>
+      </div><button type="submit" data-template-id="contact-submit" class="canva-button w-full py-3 rounded-lg font-semibold transition hover:opacity-90" style="background: rgb(5, 150, 105); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Contact Us On WhatsApp</button>
+     </form>
+     <p class="mt-4 text-center text-sm text-gray-500">You will be redirected to WhatsApp to complete the enquiry.</p>
+    </div>
+   </section>
+  </main>
+  <footer class="border-t border-gray-200 py-6 text-center">
+   <p data-template-id="footer-text" class="canva-text text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">© 2026 SmartEdge Solutions. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body></html>

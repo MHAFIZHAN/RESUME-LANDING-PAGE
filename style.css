@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+.canva-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.canva-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px rgba(17, 24, 39, 0.12);
+}
+
+.canva-input,
+.canva-button,
+.canva-link {
+  transition: all 0.2s ease;
+}
+
+.canva-input:focus {
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+}
+
+#success-msg {
+  transition: opacity 0.2s ease;
+}
+
+@media (max-width: 640px) {
+  nav .max-w-6xl {
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  nav .flex.gap-6 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  #home {
+    text-align: center;
+  }
+}
