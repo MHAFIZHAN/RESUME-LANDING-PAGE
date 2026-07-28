@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receipt Converter - SmartEdge Solutions</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    .receipt-preview { display: none; }
+    @media print {
+      .no-print { display: none !important; }
+      .receipt-preview { display: block !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 no-print">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-lg font-bold" style="color: rgb(5, 150, 105);">SmartEdge Solutions</a>
+      <a href="index.html" class="text-sm text-gray-600 hover:text-emerald-600 transition">&larr; Back to Home</a>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-2xl mx-auto no-print">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2 text-center">🧾 Receipt Converter</h1>
+      <p class="text-gray-500 text-center mb-8">Fill in the order details below to generate a downloadable receipt.</p>
+
+      <form id="receipt-form" class="bg-white rounded-2xl shadow-md p-8 space-y-5">
+        <!-- No Resit -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="no-resit">No Resit</label>
+          <input id="no-resit" type="text" required placeholder="e.g. R001" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+        </div>
+
+        <!-- Nama Pelanggan -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="nama">Nama Pelanggan</label>
+          <input id="nama" type="text" required placeholder="e.g. Nadia Farhana Binti Nizzamuddin" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+        </div>
+
+        <!-- No Telefon -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="telefon">No Telefon</label>
+          <input id="telefon" type="tel" required placeholder="e.g. 01110666991" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+        </div>
+
+        <!-- Pakej -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="pakej">Pakej</label>
+          <select id="pakej" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+            <option value="">-- Pilih Pakej --</option>
+            <option value="Standard (3 Days)">Standard (3 Days)</option>
+            <option value="Urgent (24 Hours)">Urgent (24 Hours)</option>
+          </select>
+        </div>
+
+        <!-- Template -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="template">Template</label>
+          <select id="template" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+            <option value="">-- Pilih Template --</option>
+            <option value="E (ATS-Friendly)">E (ATS-Friendly)</option>
+            <option value="C (Creative)">C (Creative)</option>
+          </select>
+        </div>
+
+        <!-- Jumlah (RM) -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="jumlah">Jumlah (RM)</label>
+          <input id="jumlah" type="number" required min="1" step="0.01" placeholder="e.g. 5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+        </div>
+
+        <!-- Kaedah Bayaran -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="kaedah">Kaedah Bayaran</label>
+          <select id="kaedah" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100">
+            <option value="">-- Pilih Kaedah --</option>
+            <option value="Online Transfer (BSN)">Online Transfer (BSN)</option>
+            <option value="Online Transfer (Maybank)">Online Transfer (Maybank)</option>
+            <option value="Online Transfer (CIMB)">Online Transfer (CIMB)</option>
+            <option value="DuitNow QR">DuitNow QR</option>
+            <option value="Cash">Cash</option>
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full py-3 rounded-lg font-semibold text-white transition hover:opacity-90" style="background: rgb(5, 150, 105);">
+          Generate Receipt &darr;
+        </button>
+      </form>
+    </div>
+
+    <!-- Receipt Preview (hidden until generated) -->
+    <div id="receipt-output" class="receipt-preview max-w-xl mx-auto mt-10">
+      <div id="receipt-content" class="bg-white rounded-2xl shadow-lg p-10 border border-gray-200">
+        <!-- Receipt Header -->
+        <div class="text-center border-b-2 border-emerald-500 pb-4 mb-6">
+          <h2 class="text-xl font-bold text-emerald-600">SmartEdge Solutions</h2>
+          <p class="text-sm text-gray-500 mt-1">Professional Resume Writing Services</p>
+        </div>
+
+        <!-- Receipt Title -->
+        <div class="text-center mb-6">
+          <h3 class="text-lg font-bold text-gray-800 uppercase tracking-wide">Payment Receipt</h3>
+          <p class="text-sm text-gray-500" id="receipt-date"></p>
+        </div>
+
+        <!-- Receipt Details Table -->
+        <table class="w-full text-sm mb-6">
+          <tbody>
+            <tr class="border-b border-gray-100">
+              <td class="py-2 font-medium text-gray-600 w-40">No Resit</td>
+              <td class="py-2 text-gray-900 font-semibold" id="r-resit"></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-2 font-medium text-gray-600">Nama Pelanggan</td>
+              <td class="py-2 text-gray-900" id="r-nama"></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-2 font-medium text-gray-600">No Telefon</td>
+              <td class="py-2 text-gray-900" id="r-telefon"></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-2 font-medium text-gray-600">Pakej</td>
+              <td class="py-2 text-gray-900" id="r-pakej"></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-2 font-medium text-gray-600">Template</td>
+              <td class="py-2 text-gray-900" id="r-template"></td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-2 font-medium text-gray-600">Kaedah Bayaran</td>
+              <td class="py-2 text-gray-900" id="r-kaedah"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Total -->
+        <div class="flex justify-between items-center bg-emerald-50 rounded-lg p-4 mb-6">
+          <span class="font-bold text-gray-800 text-base">JUMLAH BAYARAN</span>
+          <span class="font-bold text-emerald-600 text-xl" id="r-jumlah"></span>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-xs text-gray-400 border-t border-gray-100 pt-4">
+          <p>Thank you for choosing SmartEdge Solutions.</p>
+          <p class="mt-1">This is a computer-generated receipt. No signature required.</p>
+        </div>
+      </div>
+
+      <!-- Download Button -->
+      <div class="text-center mt-6 no-print">
+        <button id="download-btn" class="px-8 py-3 rounded-lg font-semibold text-white transition hover:opacity-90" style="background: rgb(5, 150, 105);">
+          📥 Download Receipt (PDF)
+        </button>
+        <button id="new-btn" class="ml-3 px-6 py-3 rounded-lg font-semibold text-emerald-600 border-2 border-emerald-500 transition hover:bg-emerald-50">
+          + New Receipt
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('receipt-form');
+    const output = document.getElementById('receipt-output');
+    const downloadBtn = document.getElementById('download-btn');
+    const newBtn = document.getElementById('new-btn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Get values
+      const noResit = document.getElementById('no-resit').value.trim();
+      const nama = document.getElementById('nama').value.trim();
+      const telefon = document.getElementById('telefon').value.trim();
+      const pakej = document.getElementById('pakej').value;
+      const template = document.getElementById('template').value;
+      const jumlah = parseFloat(document.getElementById('jumlah').value);
+      const kaedah = document.getElementById('kaedah').value;
+
+      // Populate receipt
+      document.getElementById('r-resit').textContent = noResit;
+      document.getElementById('r-nama').textContent = nama;
+      document.getElementById('r-telefon').textContent = telefon;
+      document.getElementById('r-pakej').textContent = pakej;
+      document.getElementById('r-template').textContent = template;
+      document.getElementById('r-kaedah').textContent = kaedah;
+      document.getElementById('r-jumlah').textContent = `RM ${jumlah.toFixed(2)}`;
+      document.getElementById('receipt-date').textContent = new Date().toLocaleDateString('ms-MY', {
+        day: '2-digit', month: 'long', year: 'numeric'
+      });
+
+      // Show receipt
+      output.style.display = 'block';
+      output.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Download as PDF
+    downloadBtn.addEventListener('click', () => {
+      const element = document.getElementById('receipt-content');
+      const noResit = document.getElementById('r-resit').textContent;
+
+      const opt = {
+        margin: 0.5,
+        filename: `Receipt_${noResit}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    });
+
+    // New receipt
+    newBtn.addEventListener('click', () => {
+      form.reset();
+      output.style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
