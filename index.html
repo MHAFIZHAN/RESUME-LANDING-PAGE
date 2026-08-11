@@ -111,14 +111,47 @@
      <h2 data-template-id="contact-heading" class="canva-text heading-font text-center mb-10" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Get In Touch</h2>
      <form id="contact-form" class="space-y-5">
       <div>
-       <label data-template-id="label-name" class="canva-text block mb-1" for="c-name" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Name</label> <input id="c-name" type="text" data-template-id="input-name" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required="" maxlength="100" autocomplete="name" placeholder="Your name" style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">
+       <label class="canva-text block mb-1" for="c-name" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Name <span class="text-red-500">*</span></label>
+       <input id="c-name" type="text" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required maxlength="100" autocomplete="name" placeholder="Your name" style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">
       </div>
       <div>
-       <label data-template-id="label-email" class="canva-text block mb-1" for="c-email" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Email</label> <input id="c-email" type="email" data-template-id="input-email" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required="" maxlength="120" autocomplete="email" placeholder="your@email.com" style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">
+       <label class="canva-text block mb-2" style="color: rgb(55, 65, 81); font-weight: 500; font-style: normal; font-size: 16px;">Choose Your Advisor <span class="text-red-500">*</span></label>
+       <p class="text-sm text-gray-500 mb-3">Select who you'd like to work with for your resume</p>
+       <div class="space-y-2">
+        <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-300 cursor-pointer hover:border-emerald-500 transition">
+         <input type="radio" name="advisor" value="chaa" required class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+         <span class="text-gray-800 font-medium">Chaa</span>
+         <span class="text-gray-500 text-sm">(013-738 1646)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-300 cursor-pointer hover:border-emerald-500 transition">
+         <input type="radio" name="advisor" value="qis" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+         <span class="text-gray-800 font-medium">Qis</span>
+         <span class="text-gray-500 text-sm">(012-291 3781)</span>
+        </label>
+       </div>
       </div>
       <div>
-       <label data-template-id="label-message" class="canva-text block mb-1" for="c-msg" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Message</label> <textarea id="c-msg" rows="4" data-template-id="input-message" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" required="" maxlength="1000" placeholder="Tell us about your resume needs..." style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;"></textarea>
-      </div><button type="submit" data-template-id="contact-submit" class="canva-button w-full py-3 rounded-lg font-semibold transition hover:opacity-90" style="background: rgb(5, 150, 105); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Contact Us On WhatsApp</button>
+       <label class="canva-text block mb-2" style="color: rgb(55, 65, 81); font-weight: 500; font-style: normal; font-size: 16px;">Choose Your Package <span class="text-red-500">*</span></label>
+       <div class="space-y-2">
+        <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-300 cursor-pointer hover:border-emerald-500 transition">
+         <input type="radio" name="package" value="standard" required class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+         <span class="text-gray-800 font-medium">Standard (3 Days) - RM 5</span>
+        </label>
+        <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-300 cursor-pointer hover:border-emerald-500 transition">
+         <input type="radio" name="package" value="urgent" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+         <span class="text-gray-800 font-medium">Urgent (24 Hours) - RM 12</span>
+        </label>
+       </div>
+      </div>
+      <div>
+       <label class="canva-text block mb-1" for="c-email" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Email <span class="text-gray-400 text-sm">(optional)</span></label>
+       <input id="c-email" type="email" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" maxlength="120" autocomplete="email" placeholder="your@email.com" style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">
+      </div>
+      <div>
+       <label class="canva-text block mb-1" for="c-msg" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Message <span class="text-gray-400 text-sm">(optional)</span></label>
+       <textarea id="c-msg" rows="4" class="canva-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-emerald-500" maxlength="1000" placeholder="Tell us about your resume needs..." style="background: rgb(255, 255, 255); color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;"></textarea>
+      </div>
+      <button type="submit" class="canva-button w-full py-3 rounded-lg font-semibold transition hover:opacity-90" style="background: rgb(5, 150, 105); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Contact Us On WhatsApp</button>
      </form>
      <p class="mt-4 text-center text-sm text-gray-500">You will be redirected to WhatsApp to complete the enquiry.</p>
     </div>
