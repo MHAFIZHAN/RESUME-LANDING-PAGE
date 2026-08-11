@@ -30,7 +30,143 @@ body {
   transition: opacity 0.2s ease;
 }
 
+.contact-card {
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 12px 35px rgba(17, 24, 39, 0.06);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.form-hint {
+  margin: -0.15rem 0 0.75rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.choice-card {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.choice-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.choice-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.choice-card:hover .choice-content {
+  border-color: #6ee7b7;
+  transform: translateY(-1px);
+}
+
+.choice-input:focus-visible + .choice-content {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14);
+}
+
+.choice-input:checked + .choice-content {
+  border-color: #059669;
+  background: #ecfdf5;
+  box-shadow: 0 0 0 1px #059669;
+}
+
+.choice-title,
+.choice-detail {
+  display: block;
+}
+
+.choice-title {
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.choice-detail {
+  margin-top: 0.2rem;
+  color: #6b7280;
+  font-size: 0.82rem;
+}
+
+.choice-indicator {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  margin-left: 0.75rem;
+  border: 2px solid #9ca3af;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 3px #ffffff;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.choice-input:checked + .choice-content .choice-indicator {
+  border-color: #059669;
+  background: #059669;
+}
+
+.package-content {
+  gap: 0.75rem;
+}
+
+.package-price {
+  flex: 0 0 auto;
+  color: #047857;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.optional-label {
+  margin-left: 0.35rem;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 @media (max-width: 640px) {
+  .contact-card {
+    padding: 1.25rem;
+  }
+
+  .choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-content {
+    min-height: 68px;
+  }
+
   nav .max-w-6xl {
     gap: 12px;
     flex-direction: column;
